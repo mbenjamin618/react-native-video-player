@@ -87,6 +87,13 @@ export default class VideoPlayer extends Component {
       this.hideControls();
     }
   }
+  
+  componentWillUnmount() {
+    if (this.controlsTimeout) {
+      clearTimeout(this.controlsTimeout);
+    }
+  }
+    
 
   onLayout(event) {
     const { width } = event.nativeEvent.layout;
