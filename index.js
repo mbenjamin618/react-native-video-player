@@ -163,13 +163,15 @@ export default class VideoPlayer extends Component {
   }
 
   hideControls() {
-    if (this.controlsTimeout) {
-      clearTimeout(this.controlsTimeout);
-      this.controlsTimeout = null;
+    if (!this.props.alwaysShowControls) {
+      if (this.controlsTimeout) {
+        clearTimeout(this.controlsTimeout);
+        this.controlsTimeout = null;
+      }
+      this.controlsTimeout = setTimeout(() => {
+        this.setState({ isControlsVisible: false });
+      }, this.props.controlsTimeout);
     }
-    this.controlsTimeout = setTimeout(() => {
-      this.setState({ isControlsVisible: false });
-    }, this.props.controlsTimeout);
   }
 
   showControls() {
@@ -350,6 +352,7 @@ VideoPlayer.propTypes = {
   loop: PropTypes.bool,
   resizeMode: Video.propTypes.resizeMode,
   hideControlsOnStart: PropTypes.bool,
+  alwaysShowControls: PropTypes.bool,
   endWithThumbnail: PropTypes.bool,
   customStyles: PropTypes.shape({
     wrapper: View.propTypes.style,
