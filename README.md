@@ -29,7 +29,7 @@ react-native link react-native-vector-icons
 | controlsTimeout     | Timeout when to hide the controls.                                                          |
 | loop                | Loop the video after playback is done.                                                      |
 | resizeMode          | The video's resizeMode. defaults to contain and is passed to react-native-video.            |
-| alwaysShowControls  | Shows the controls throught the 
+| alwaysShowControls  | Always shows the controls while the video is playing.
 | hideControlsOnStart | Hides the controls on start video.                                                          |
 | endWithThumbnail    | Returns to the thumbnail after the video ends.                                              |
 | customStyles        | The player can be customized with these custom styles:                                      |
